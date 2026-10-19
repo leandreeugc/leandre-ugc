@@ -1,0 +1,221 @@
+# Editing dashboard settings.
+backend:
+  name: github
+  repo: leandreeugc/leandre-ugc
+  branch: main
+  commit_messages:
+    update: "Update {{slug}}"
+    uploadMedia: "Upload {{path}}"
+    deleteMedia: "Delete {{path}}"
+
+media_folder: assets/uploads
+public_folder: /assets/uploads
+
+editor:
+  preview: false
+
+collections:
+  - name: pages
+    label: "My website"
+    editor: { preview: false }
+    files:
+
+      - name: videos
+        label: "🎬 Videos"
+        file: content/videos.json
+        fields:
+          - { name: eyebrow, label: "Small label above heading", widget: string, required: false }
+          - { name: heading, label: "Heading (put *stars* around words to make them pink)", widget: string }
+          - { name: intro, label: "Intro text", widget: text, required: false }
+          - name: items
+            label: "Videos (drag to reorder)"
+            label_singular: "video"
+            widget: list
+            summary: "{{fields.title}} · {{fields.niche}}"
+            fields:
+              - { name: video, label: "Video file (MP4, under 25 MB)", widget: file, required: false }
+              - { name: title, label: "Title", widget: string }
+              # Niche options (edit this list to add more; it's reused below)
+              - { name: niche, label: "Niche", widget: select, options: &niches ["Beauty", "Skincare", "Fashion", "Lifestyle", "Travel", "Food & Drink", "Home", "Wellness", "Fitness", "Tech", "Pets", "Family"] }
+              - { name: brand, label: "Brand or label (optional)", widget: string, required: false }
+              - { name: cover, label: "Cover image (optional, otherwise the first frame shows)", widget: image, required: false }
+
+      - name: photos
+        label: "📸 Photography"
+        file: content/photos.json
+        fields:
+          - { name: eyebrow, label: "Small label above heading", widget: string, required: false }
+          - { name: heading, label: "Heading (put *stars* around words to make them pink)", widget: string }
+          - { name: intro, label: "Intro text", widget: text, required: false }
+          - name: items
+            label: "Photos (drag to reorder)"
+            label_singular: "photo"
+            widget: list
+            summary: "{{fields.caption}} · {{fields.niche}}"
+            fields:
+              - { name: image, label: "Photo (JPG or PNG)", widget: image, required: false }
+              - { name: caption, label: "Caption", widget: string, required: false }
+              - { name: niche, label: "Niche", widget: select, options: *niches }
+              - { name: shape, label: "Box shape", widget: select, default: "tall", options: [{ label: "Tall (4:5)", value: "tall" }, { label: "Portrait (2:3)", value: "portrait" }, { label: "Square", value: "square" }, { label: "Wide (5:4)", value: "wide" }] }
+
+      - name: packages
+        label: "💷 Packages & add-ons"
+        file: content/packages.json
+        fields:
+          - { name: eyebrow, label: "Small label above heading", widget: string, required: false }
+          - { name: heading, label: "Heading", widget: string }
+          - { name: intro, label: "Intro text", widget: text, required: false }
+          - { name: currency, label: "Currency symbol", widget: string, default: "£" }
+          - name: items
+            label: "Packages (drag to reorder)"
+            label_singular: "package"
+            widget: list
+            summary: "{{fields.name}} · {{fields.price}}"
+            fields:
+              - { name: name, label: "Package name", widget: string }
+              - { name: price, label: "Price (number only)", widget: number, value_type: int }
+              - { name: priceFrom, label: "Show 'from' before the price", widget: boolean, default: false }
+              - { name: per, label: "After price (e.g. / month)", widget: string, required: false }
+              - { name: description, label: "Short description", widget: string, required: false }
+              - { name: includes, label: "What's included", widget: list, field: { name: item, label: "Item", widget: string } }
+              - { name: featured, label: "Highlight in pink", widget: boolean, default: false }
+              - { name: tag, label: "Badge (e.g. Most popular)", widget: string, required: false }
+          - { name: addonsHeading, label: "Add-ons heading", widget: string, default: "Add-ons" }
+          - name: addons
+            label: "Add-ons"
+            label_singular: "add-on"
+            widget: list
+            summary: "{{fields.name}} · {{fields.price}}"
+            fields:
+              - { name: name, label: "Add-on", widget: string }
+              - { name: detail, label: "Small detail", widget: string, required: false }
+              - { name: price, label: "Price (type it as shown, e.g. £25 or +£50 or Custom)", widget: string }
+          - { name: customHeading, label: "Custom quote heading", widget: string, required: false }
+          - { name: customText, label: "Custom quote text (leave empty to hide the box)", widget: text, required: false }
+          - { name: customButton, label: "Custom quote button text", widget: string, required: false }
+
+      - name: hero
+        label: "✨ Top of page"
+        file: content/hero.json
+        fields:
+          - { name: eyebrow, label: "Small label above heading", widget: string, required: false }
+          - { name: heading, label: "Big heading (put *stars* around words to make them pink)", widget: string }
+          - { name: intro, label: "Intro text", widget: text, required: false }
+          - { name: button, label: "First button text", widget: string, default: "See my work" }
+          - { name: sticker, label: "Sticker text (leave empty to hide)", widget: string, required: false }
+          - { name: photos, label: "Collage photos (up to 3)", widget: list, max: 3, field: { name: image, label: "Photo", widget: image } }
+
+      - name: about
+        label: "💗 About me"
+        file: content/about.json
+        fields:
+          - { name: eyebrow, label: "Small label above heading", widget: string, required: false }
+          - { name: heading, label: "Heading", widget: string }
+          - { name: photo, label: "Your portrait", widget: image, required: false }
+          - { name: paragraphs, label: "Paragraphs", widget: list, field: { name: text, label: "Paragraph", widget: text } }
+          - { name: kit, label: "'My kit' line (leave empty to hide)", widget: string, required: false }
+          - { name: signature, label: "Signature", widget: string, required: false }
+
+      - name: travel
+        label: "✈️ Travel"
+        file: content/travel.json
+        fields:
+          - { name: eyebrow, label: "Small label above heading", widget: string, required: false }
+          - { name: heading, label: "Heading", widget: string }
+          - { name: text, label: "Text", widget: text, required: false }
+          - name: stamps
+            label: "Stamps"
+            widget: list
+            summary: "{{fields.name}}"
+            fields:
+              - { name: name, label: "Text", widget: string }
+              - { name: done, label: "Ticked (filled in)", widget: boolean, default: false }
+          - { name: button, label: "Button text (opens an email; leave empty to hide)", widget: string, required: false }
+          - { name: photos, label: "Travel photos (up to 2)", widget: list, max: 2, field: { name: image, label: "Photo", widget: image } }
+
+      - name: services
+        label: "🧾 Services"
+        file: content/services.json
+        fields:
+          - { name: eyebrow, label: "Small label above heading", widget: string, required: false }
+          - { name: heading, label: "Heading", widget: string }
+          - { name: intro, label: "Intro text", widget: text, required: false }
+          - { name: items, label: "Services", widget: list, summary: "{{fields.title}}", fields: [{ name: title, label: "Service", widget: string }, { name: text, label: "Description", widget: string }] }
+
+      - name: why
+        label: "🌸 Why brands work with me"
+        file: content/why.json
+        fields:
+          - { name: eyebrow, label: "Small label above heading", widget: string, required: false }
+          - { name: heading, label: "Heading", widget: string }
+          - { name: intro, label: "Intro text", widget: text, required: false }
+          - { name: items, label: "Reasons", widget: list, summary: "{{fields.title}}", fields: [{ name: symbol, label: "Little symbol", widget: string, default: "✿" }, { name: title, label: "Title", widget: string }, { name: text, label: "Text", widget: string }] }
+
+      - name: mediakit
+        label: "📊 Media kit"
+        file: content/mediakit.json
+        fields:
+          - { name: eyebrow, label: "Small label above heading", widget: string, required: false }
+          - { name: heading, label: "Heading", widget: string }
+          - { name: intro, label: "Intro text", widget: text, required: false }
+          - { name: audience, label: "Audience", widget: list, field: { name: item, label: "Line", widget: string } }
+          - { name: deliverables, label: "Deliverables", widget: list, field: { name: item, label: "Line", widget: string } }
+          - { name: stats, label: "Numbers (up to 3)", widget: list, max: 3, summary: "{{fields.label}}: {{fields.value}}", fields: [{ name: value, label: "Number (e.g. 12.4K)", widget: string }, { name: label, label: "Label", widget: string }] }
+
+      - name: faq
+        label: "❓ FAQ"
+        file: content/faq.json
+        fields:
+          - { name: eyebrow, label: "Small label above heading", widget: string, required: false }
+          - { name: heading, label: "Heading", widget: string }
+          - { name: intro, label: "Intro text", widget: text, required: false }
+          - { name: items, label: "Questions", widget: list, summary: "{{fields.question}}", fields: [{ name: question, label: "Question", widget: string }, { name: answer, label: "Answer", widget: text }] }
+
+      - name: contact
+        label: "💌 Contact"
+        file: content/contact.json
+        fields:
+          - { name: eyebrow, label: "Small label above heading", widget: string, required: false }
+          - { name: heading, label: "Heading", widget: string }
+          - { name: text, label: "Text", widget: text, required: false }
+
+      - name: settings
+        label: "⚙️ Site settings, colours & layout"
+        file: content/settings.json
+        fields:
+          - { name: name, label: "Your name", widget: string }
+          - { name: siteTitle, label: "Browser tab title", widget: string }
+          - { name: email, label: "Email", widget: string }
+          - name: workWithMe
+            label: "'Work with me' buttons"
+            widget: object
+            fields:
+              - { name: label, label: "Button text", widget: string, default: "Work with me" }
+              - { name: link, label: "Link (leave empty to open an email to you)", widget: string, required: false }
+              - { name: emailSubject, label: "Email subject", widget: string }
+              - { name: emailBody, label: "Email starter text", widget: text }
+          - { name: socials, label: "Social links", widget: list, summary: "{{fields.label}}", fields: [{ name: label, label: "Text", widget: string }, { name: url, label: "Link", widget: string }] }
+          - { name: footerNote, label: "Footer note", widget: string, required: false }
+          - name: colors
+            label: "Colours"
+            widget: object
+            fields:
+              - { name: background, label: "Page background", widget: color }
+              - { name: pink, label: "Main pink", widget: color }
+              - { name: accent, label: "Accent (pink words, details)", widget: color }
+              - { name: text, label: "Text & dark bands", widget: color }
+          - name: niches
+            label: "Niche filter buttons"
+            widget: list
+            summary: "{{fields.name}}"
+            fields:
+              - { name: name, label: "Niche", widget: select, options: *niches }
+              - { name: comingSoon, label: "Show 'soon' tag", widget: boolean, default: false }
+          - { name: ribbon, label: "Scrolling ribbon words", widget: list, field: { name: item, label: "Word or phrase", widget: string } }
+          - name: sections
+            label: "Page layout (drag to reorder, untick to hide)"
+            widget: list
+            summary: "{{fields.type}} · showing: {{fields.show}}"
+            fields:
+              - { name: type, label: "Section", widget: select, options: [{ label: "Top of page", value: hero }, { label: "Scrolling ribbon", value: ribbon }, { label: "About me", value: about }, { label: "Videos", value: videos }, { label: "Photography", value: photos }, { label: "Travel", value: travel }, { label: "Services", value: services }, { label: "Packages & add-ons", value: packages }, { label: "Why brands work with me", value: why }, { label: "Media kit", value: mediakit }, { label: "FAQ", value: faq }, { label: "Contact", value: contact }] }
+              - { name: show, label: "Show on site", widget: boolean, default: true }

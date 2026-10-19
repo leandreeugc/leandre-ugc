@@ -1,0 +1,16 @@
+{
+  "eyebrow": "Services",
+  "heading": "What I can create *for you.*",
+  "intro": "",
+  "items": [
+    { "title": "UGC videos", "text": "Short, native-feeling videos for TikTok, Reels and paid ads." },
+    { "title": "Get ready with me", "text": "GRWM and routine videos that show your product in real use." },
+    { "title": "Try-on & styling", "text": "Try-on hauls and outfit styling for fashion and accessories." },
+    { "title": "Product photography", "text": "Clean, pretty stills for your site, Amazon and socials." },
+    { "title": "Lifestyle photography", "text": "Candid images that put your product into everyday moments." },
+    { "title": "Unboxing & first impressions", "text": "Genuine reactions with lots of close-up detail shots." },
+    { "title": "Voiceover videos", "text": "Friendly, natural voiceovers that walk viewers through the benefits." },
+    { "title": "Hotel & travel content", "text": "Room tours, amenities and destination guides from wherever I'm travelling." },
+    { "title": "Monthly packages", "text": "A steady flow of fresh content, planned and delivered each month." }
+  ]
+}

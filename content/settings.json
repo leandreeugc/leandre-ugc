@@ -1,0 +1,43 @@
+{
+  "name": "Leandré",
+  "siteTitle": "Leandré · UGC Portfolio",
+  "email": "leandre.ugc@outlook.com",
+  "workWithMe": {
+    "label": "Work with me",
+    "link": "",
+    "emailSubject": "Collaboration enquiry",
+    "emailBody": "Hi Leandré,\n\nI'd love to work with you!\n\nBrand:\nProduct:\nPackage or add-ons I'm interested in:\nWhere the content will be used:\nIdeal timeline:\n\nThanks,\n"
+  },
+  "socials": [
+    { "label": "Instagram @leandre.ugc", "url": "https://www.instagram.com/leandre.ugc" },
+    { "label": "TikTok @leandree.ugc", "url": "https://www.tiktok.com/@leandree.ugc" }
+  ],
+  "footerNote": "Currently travelling · Cape Town from 2027",
+  "colors": {
+    "background": "#fff6f8",
+    "pink": "#f6cad7",
+    "accent": "#d77c99",
+    "text": "#3f1d2c"
+  },
+  "niches": [
+    { "name": "Beauty", "comingSoon": false },
+    { "name": "Fashion", "comingSoon": false },
+    { "name": "Lifestyle", "comingSoon": false },
+    { "name": "Travel", "comingSoon": true }
+  ],
+  "ribbon": ["Beauty", "Skincare", "Fashion", "Try-on hauls", "Lifestyle", "GRWM", "Product photography", "Travel, coming soon"],
+  "sections": [
+    { "type": "hero", "show": true },
+    { "type": "ribbon", "show": true },
+    { "type": "about", "show": true },
+    { "type": "videos", "show": true },
+    { "type": "photos", "show": true },
+    { "type": "travel", "show": true },
+    { "type": "services", "show": true },
+    { "type": "packages", "show": true },
+    { "type": "why", "show": true },
+    { "type": "mediakit", "show": true },
+    { "type": "faq", "show": true },
+    { "type": "contact", "show": true }
+  ]
+}

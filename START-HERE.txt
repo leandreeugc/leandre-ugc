@@ -1,0 +1,76 @@
+LEANDRÉ'S UGC WEBSITE — SETUP (about 30 minutes, all free)
+==========================================================
+
+What's in this folder
+  index.html     the website itself (you never need to edit it)
+  content/       all your words, prices, photos and videos (edited from the dashboard)
+  admin/         your editing dashboard (yoursite/admin)
+  assets/uploads where your uploaded photos and videos are stored
+
+------------------------------------------------------------
+STEP 1 — Make a GitHub account (this is where your site files live)
+------------------------------------------------------------
+Done: your username (leandreeugc) is already filled in.
+
+------------------------------------------------------------
+STEP 2 — Upload the files
+------------------------------------------------------------
+1. On GitHub click the + (top right) > New repository.
+2. Name it:  leandre-ugc
+   Choose Public, tick "Add a README file", click Create repository.
+3. Click "Add file" > "Upload files".
+4. Open this folder on your computer, select EVERYTHING inside it
+   (index.html, admin, content, assets, this file) and drag it into the page.
+   Drag the contents, not the folder itself.
+5. Click "Commit changes".
+
+------------------------------------------------------------
+STEP 3 — Put the site online with Netlify
+------------------------------------------------------------
+1. Go to netlify.com > Sign up > "Sign up with GitHub".
+2. Click "Add new project" (or "Add new site") > "Import an existing project" > GitHub.
+3. Pick  leandre-ugc . Leave the build settings empty. Click Deploy.
+4. When it's done you'll get an address like  random-name-123.netlify.app
+   To change it: Project configuration > General > Change project name > leandre-ugc
+   Your site is now at  https://leandre-ugc.netlify.app  (or whatever name you chose)
+
+------------------------------------------------------------
+STEP 4 — Turn on your dashboard login
+------------------------------------------------------------
+A) On GitHub:
+   1. Click your profile photo > Settings > Developer settings (bottom left) > OAuth Apps > New OAuth App.
+   2. Fill in:
+        Application name:            Leandre site editor
+        Homepage URL:                https://leandre-ugc.netlify.app   (your site address)
+        Authorization callback URL:  https://api.netlify.com/auth/done
+   3. Click Register application.
+   4. Copy the Client ID. Click "Generate a new client secret" and copy that too.
+
+B) On Netlify (your site):
+   1. Project configuration > Access & security > OAuth > Install provider.
+   2. Choose GitHub, paste the Client ID and Client secret, click Install.
+
+------------------------------------------------------------
+STEP 5 — Edit your site any time
+------------------------------------------------------------
+Go to  https://leandre-ugc.netlify.app/admin  > Login with GitHub.
+
+  • Videos / Photography: add, remove, drag to reorder, upload files
+  • Packages & add-ons: change prices, add or delete packages
+  • Site settings: colours, your email, social links, the "Work with me" link,
+    and the page layout (drag sections to reorder, untick to hide)
+  • Put *stars* around words in a heading to make them pink and italic
+
+Click Publish after editing. Your live site updates in about a minute.
+
+------------------------------------------------------------
+TIPS FOR FULL QUALITY
+------------------------------------------------------------
+  • Videos: MP4, ideally under 25 MB each (1080p, 30–60s is usually fine).
+    iPhone: Settings > Camera > Formats > Most Compatible, so videos save as MP4-friendly files.
+  • Photos: full-size JPG or PNG straight from your camera/editing app.
+    Avoid screenshots or files sent through WhatsApp/Instagram (they get compressed).
+  • Files are stored exactly as you upload them; nothing is compressed.
+
+OPTIONAL — your own address (e.g. leandreugc.com)
+  Buy a domain (about £10/year) and add it in Netlify: Domain management > Add a domain.

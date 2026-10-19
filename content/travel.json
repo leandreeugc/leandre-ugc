@@ -1,0 +1,13 @@
+{
+  "eyebrow": "New niche · Travel",
+  "heading": "Currently living out of *a suitcase.*",
+  "text": "Travel is my newest niche, and I'm living it. My boyfriend and I are moving from country to country until we settle in Cape Town in 2027, so I'm building a library of hotel stays, city guides, couple content and packing videos with the same soft, honest style. Booking hotel, resort and tourism partnerships along the way.",
+  "stamps": [
+    { "name": "Travelling full time", "done": true },
+    { "name": "Hotel & villa stays", "done": false },
+    { "name": "Couple travel content", "done": false },
+    { "name": "Cape Town · 2027", "done": false }
+  ],
+  "button": "Pitch me a trip",
+  "photos": []
+}

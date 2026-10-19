@@ -1,0 +1,44 @@
+{
+  "eyebrow": "Packages · prices in GBP (£)",
+  "heading": "Simple packages, *clear prices.*",
+  "intro": "Every package includes a creative brief call, one round of revisions and organic usage rights. Pick a package, then add any extras you need.",
+  "currency": "£",
+  "items": [
+    {
+      "name": "Starter", "price": 150, "priceFrom": false, "per": "", "tag": "", "featured": false,
+      "description": "Perfect for testing a new product or creator.",
+      "includes": ["1 UGC video (up to 60s)", "2 hook variations", "Captions / on-screen text", "Delivered in 5–7 days"]
+    },
+    {
+      "name": "Creator Bundle", "price": 395, "priceFrom": false, "per": "", "tag": "Most popular", "featured": true,
+      "description": "Video and photo content for a launch or campaign.",
+      "includes": ["3 UGC videos (up to 60s)", "2 hook variations per video", "5 edited lifestyle or product photos", "Captions / on-screen text", "Delivered in 7–10 days"]
+    },
+    {
+      "name": "Brand Builder", "price": 650, "priceFrom": false, "per": "", "tag": "", "featured": false,
+      "description": "A full content library for ads and socials.",
+      "includes": ["5 UGC videos (up to 60s)", "3 hook variations per video", "10 edited photos", "Raw footage included", "Delivered in 10–14 days"]
+    },
+    {
+      "name": "Monthly Retainer", "price": 1100, "priceFrom": true, "per": "/ month", "tag": "", "featured": false,
+      "description": "Fresh content every month, planned with you.",
+      "includes": ["8 UGC videos per month", "15 edited photos per month", "Monthly content planning call", "Priority turnaround", "3-month minimum"]
+    }
+  ],
+  "addonsHeading": "Add-ons",
+  "addons": [
+    { "name": "Extra hook variation", "detail": "Per video", "price": "£25" },
+    { "name": "Raw footage", "detail": "Unedited clips from the shoot", "price": "£50" },
+    { "name": "Paid ad usage · 30 days", "detail": "Run the content as paid ads", "price": "£75" },
+    { "name": "Paid ad usage · 90 days", "detail": "Run the content as paid ads", "price": "£150" },
+    { "name": "Whitelisting / Spark Ads", "detail": "Ads run through my account, per month", "price": "£100" },
+    { "name": "Rush delivery", "detail": "Within 72 hours", "price": "+£50" },
+    { "name": "Extra edited photo", "detail": "Per image", "price": "£20" },
+    { "name": "Voiceover", "detail": "Per video", "price": "£30" },
+    { "name": "Extra revision round", "detail": "Per video", "price": "£25" },
+    { "name": "On-location / hotel shoot", "detail": "Wherever I'm travelling", "price": "Custom" }
+  ],
+  "customHeading": "Need something that isn't listed?",
+  "customText": "If you need anything that isn't listed or priced here, tell me what you have in mind and I'll put together a custom quote and send you a custom invoice.",
+  "customButton": "Ask for a custom quote"
+}
