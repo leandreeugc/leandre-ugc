@@ -204,6 +204,15 @@ collections:
               - { name: pink, label: "Main pink", widget: color }
               - { name: accent, label: "Accent (pink words, details)", widget: color }
               - { name: text, label: "Text & dark bands", widget: color }
+          - name: fonts
+            label: "Fonts & text size"
+            widget: object
+            required: false
+            hint: "DM Serif Display and Libre Baskerville are the easiest to read on phones."
+            fields:
+              - { name: heading, label: "Heading font", widget: select, default: "DM Serif Display", required: false, options: ["DM Serif Display", "Playfair Display", "Libre Baskerville", "Gloock", "Fraunces", "Bodoni Moda"] }
+              - { name: body, label: "Body text font", widget: select, default: "Manrope", required: false, options: ["Manrope", "DM Sans", "Nunito Sans", "Poppins"] }
+              - { name: size, label: "Text size", widget: select, default: "Normal", required: false, options: ["Normal", "Large", "Extra large"] }
           - name: niches
             label: "Niche filter buttons"
             widget: list

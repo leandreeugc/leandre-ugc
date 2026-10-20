@@ -7,7 +7,8 @@
 <meta name="description" content="Leandré is a UGC creator making beauty, fashion, lifestyle and travel content for brands.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Manrope:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" id="font-link" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap">
 <!--
   You don't need to edit this file.
   All your words, prices, photos, videos and colours are edited at  yoursite.com/admin
@@ -21,24 +22,28 @@
   --rose: #d77c99;
   --ink: #3f1d2c;
   --bg-alt: color-mix(in srgb, var(--pink) 45%, var(--bg));
-  --muted: color-mix(in srgb, var(--ink) 65%, var(--bg));
+  --muted: color-mix(in srgb, var(--ink) 78%, var(--bg));
   --line: color-mix(in srgb, var(--pink) 75%, var(--bg));
   --card: #ffffff;
   --tile-a: color-mix(in srgb, var(--pink) 70%, white);
   --tile-b: var(--pink);
   --tile-c: #fde8de; --tile-d: #e9d9f3; --tile-e: #d9ecf2;
-  --font-display: "Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
+  --font-display: "DM Serif Display", Georgia, serif;
   --font-body: "Manrope", "Segoe UI", system-ui, sans-serif;
+  --base-size: 16px;
+  --display-weight: 400;
   --font-mono: "DM Mono", ui-monospace, "Cascadia Mono", monospace;
   --radius: 18px;
   color-scheme: light;
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 16px; line-height: 1.65; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: var(--base-size); line-height: 1.65; -webkit-font-smoothing: antialiased; }
 img, video { max-width: 100%; }
 a { color: inherit; }
-h1, h2, h3 { font-family: var(--font-display); font-weight: 500; line-height: 1.08; text-wrap: balance; margin: 0; }
+h1, h2, h3 { font-family: var(--font-display); font-weight: var(--display-weight); line-height: 1.1; text-wrap: balance; margin: 0; font-synthesis: none; }
+/* Display-font text that isn't a heading uses the same weight */
+.logo, .signature, .email, .ribbon-track, .pkg .price, .addon b, .stat b, .faq summary, .custom-note strong, .empty-note strong { font-weight: var(--display-weight); }
 p { margin: 0; }
 [hidden] { display: none !important; }
 :focus-visible { outline: 2px solid var(--rose); outline-offset: 3px; border-radius: 6px; }
@@ -130,7 +135,7 @@ header.nav .wrap { display: flex; align-items: center; justify-content: space-be
 .vcard h3 { font-size: 20px; }
 .vcard .brand { font-size: 13px; color: var(--muted); }
 .empty-note { grid-column: 1 / -1; padding: 40px 24px; border: 1.5px dashed var(--rose); border-radius: var(--radius); text-align: center; color: var(--muted); display: grid; gap: 6px; justify-items: center; }
-.empty-note strong { font-family: var(--font-display); font-style: italic; font-size: 26px; color: var(--ink); font-weight: 500; }
+.empty-note strong { font-family: var(--font-display); font-style: italic; font-size: 26px; color: var(--ink); font-weight: var(--display-weight); }
 
 /* Photos */
 .photo-grid { columns: 3 260px; column-gap: 18px; }
@@ -180,10 +185,10 @@ header.nav .wrap { display: flex; align-items: center; justify-content: space-be
 .addon { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding-block: 14px; border-bottom: 1px dashed var(--line); min-width: 0; }
 .addon span:first-child { display: grid; }
 .addon small { color: var(--muted); font-size: 13px; }
-.addon b { font-family: var(--font-display); font-size: 22px; font-weight: 500; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.addon b { font-family: var(--font-display); font-size: 22px; font-weight: var(--display-weight); white-space: nowrap; font-variant-numeric: tabular-nums; }
 .custom-note { margin-top: 40px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px; padding: 26px 28px; border: 1.5px dashed var(--rose); border-radius: 22px; background: var(--card); }
 .custom-note > div { display: grid; gap: 6px; flex: 1 1 320px; min-width: 0; }
-.custom-note strong { font-family: var(--font-display); font-size: 24px; font-weight: 500; }
+.custom-note strong { font-family: var(--font-display); font-size: 24px; font-weight: var(--display-weight); }
 .custom-note p { color: var(--muted); max-width: 62ch; }
 
 /* Why */
@@ -204,7 +209,7 @@ header.nav .wrap { display: flex; align-items: center; justify-content: space-be
 .kit-card h3 { font-size: 38px; font-style: italic; }
 .kit-card .niches { font-size: 14px; }
 .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; border-top: 1px solid rgba(63, 29, 44, .2); padding-top: 18px; }
-.stat b { display: block; font-family: var(--font-display); font-size: 32px; font-weight: 500; font-variant-numeric: tabular-nums; }
+.stat b { display: block; font-family: var(--font-display); font-size: 32px; font-weight: var(--display-weight); font-variant-numeric: tabular-nums; }
 .stat span { font-family: var(--font-mono); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; }
 @media (max-width: 760px) { .kit { grid-template-columns: 1fr; } .kit-lists { grid-template-columns: 1fr; } }
 
@@ -450,9 +455,39 @@ function toggleVideo(e) {
   if (vid.paused) { vid.play().catch(() => {}); card.classList.add("playing"); } else { vid.pause(); card.classList.remove("playing"); }
 }
 
+/* ---------- Fonts (chosen in Site settings) ---------- */
+// name: [Google Fonts family spec, CSS fallback, weight to use]
+const HEADING_FONTS = {
+  "DM Serif Display": ["DM+Serif+Display:ital@0;1", "Georgia, serif", 400],
+  "Playfair Display": ["Playfair+Display:ital,wght@0,400..800;1,400..800", "Georgia, serif", 600],
+  "Bodoni Moda": ["Bodoni+Moda:ital,opsz,wght@0,6..96,400..800;1,6..96,400..800", "Didot, Georgia, serif", 600],
+  "Libre Baskerville": ["Libre+Baskerville:ital,wght@0,400;0,700;1,400", "Baskerville, Georgia, serif", 400],
+  "Gloock": ["Gloock", "Georgia, serif", 400],
+  "Fraunces": ["Fraunces:ital,opsz,wght@0,9..144,400..800;1,9..144,400..800", "Georgia, serif", 600],
+};
+const BODY_FONTS = {
+  "Manrope": ["Manrope:wght@400;500;600;700", "system-ui, sans-serif"],
+  "DM Sans": ["DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700", "system-ui, sans-serif"],
+  "Nunito Sans": ["Nunito+Sans:ital,opsz,wght@0,6..12,400..700;1,6..12,400..700", "system-ui, sans-serif"],
+  "Poppins": ["Poppins:wght@400;500;600;700", "system-ui, sans-serif"],
+};
+const TEXT_SIZES = { "Normal": "16px", "Large": "17.5px", "Extra large": "19px" };
+function applyFonts(f = {}) {
+  const h = HEADING_FONTS[f.heading] ? f.heading : "DM Serif Display";
+  const b = BODY_FONTS[f.body] ? f.body : "Manrope";
+  const [hSpec, hFall, hWeight] = HEADING_FONTS[h], [bSpec, bFall] = BODY_FONTS[b];
+  $("#font-link").href = `https://fonts.googleapis.com/css2?family=${hSpec}&family=${bSpec}&display=swap`;
+  const root = document.documentElement.style;
+  root.setProperty("--font-display", `"${h}", ${hFall}`);
+  root.setProperty("--font-body", `"${b}", ${bFall}`);
+  root.setProperty("--display-weight", hWeight);
+  root.setProperty("--base-size", TEXT_SIZES[f.size] || TEXT_SIZES.Normal);
+}
+
 /* ---------- Build the page ---------- */
 function render() {
   const st = S.settings, c = st.colors || {};
+  applyFonts(st.fonts);
   const root = document.documentElement.style;
   if (c.background) root.setProperty("--bg", c.background);
   if (c.pink) root.setProperty("--pink", c.pink);
