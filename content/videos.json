@@ -3,11 +3,47 @@
   "heading": "Content that feels like a *friend's recommendation.*",
   "intro": "Tap a video to play. Filter by niche to see the work that fits your brand.",
   "items": [
-    { "title": "5-minute glow routine", "niche": "Beauty", "brand": "Skincare sample", "video": "", "cover": "" },
-    { "title": "Lip combo of the month", "niche": "Beauty", "brand": "Makeup sample", "video": "", "cover": "" },
-    { "title": "Three ways to style a slip skirt", "niche": "Fashion", "brand": "Apparel sample", "video": "", "cover": "" },
-    { "title": "Autumn try-on haul", "niche": "Fashion", "brand": "Boutique sample", "video": "", "cover": "" },
-    { "title": "Slow Sunday reset", "niche": "Lifestyle", "brand": "Personal content", "video": "", "cover": "" },
-    { "title": "Pack with me", "niche": "Travel", "brand": "Personal content", "video": "", "cover": "" }
+    {
+      "title": "5-minute glow routine",
+      "niche": "Beauty",
+      "brand": "Skincare sample",
+      "video": "",
+      "cover": ""
+    },
+    {
+      "title": "Lip combo of the month",
+      "niche": "Beauty",
+      "brand": "Makeup sample",
+      "video": "",
+      "cover": ""
+    },
+    {
+      "title": "Get Ready With Me: Date Night Edition",
+      "niche": "Fashion",
+      "brand": "Apparel sample",
+      "video": "",
+      "cover": ""
+    },
+    {
+      "title": "A Week of Outfits: What I Wore to Work",
+      "niche": "Fashion",
+      "brand": "Boutique sample",
+      "video": "",
+      "cover": ""
+    },
+    {
+      "title": "Slow Sunday reset",
+      "niche": "Lifestyle",
+      "brand": "Personal content",
+      "video": "",
+      "cover": ""
+    },
+    {
+      "title": "Pack with me",
+      "niche": "Travel",
+      "brand": "Personal content",
+      "video": "",
+      "cover": ""
+    }
   ]
 }
