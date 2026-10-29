@@ -33,7 +33,8 @@ collections:
             widget: list
             summary: "{{fields.title}} · {{fields.niche}}"
             fields:
-              - { name: video, label: "Video file (MP4, under 25 MB)", widget: file, required: false }
+              - { name: video, label: "Video: upload an MP4 (under 25 MB) or paste an Instagram, TikTok or YouTube link", widget: file, required: false, hint: "Uploading the MP4 gives the best quality. Links must be public posts." }
+              - { name: shape, label: "Video shape", widget: select, default: "auto", required: false, options: [{ label: "Automatic", value: "auto" }, { label: "Vertical (9:16)", value: "vertical" }, { label: "Horizontal / wide (16:9)", value: "horizontal" }] }
               - { name: title, label: "Title", widget: string }
               # Niche options (edit this list to add more; it's reused below)
               - { name: niche, label: "Niche", widget: select, options: &niches ["Beauty", "Skincare", "Fashion", "Lifestyle", "Travel", "Food & Drink", "Home", "Wellness", "Fitness", "Tech", "Pets", "Family"] }
