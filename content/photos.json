@@ -3,11 +3,41 @@
   "heading": "Product & lifestyle stills, *styled with care.*",
   "intro": "Editorial product shots, flat lays, on-body styling and candid lifestyle images, ready for your site, ads and socials.",
   "items": [
-    { "caption": "Serum flat lay", "niche": "Beauty", "shape": "tall", "image": "" },
-    { "caption": "Vanity details", "niche": "Beauty", "shape": "square", "image": "" },
-    { "caption": "Linen set, golden hour", "niche": "Fashion", "shape": "tall", "image": "" },
-    { "caption": "Café table still life", "niche": "Lifestyle", "shape": "wide", "image": "" },
-    { "caption": "Accessories edit", "niche": "Fashion", "shape": "square", "image": "" },
-    { "caption": "Hotel morning light", "niche": "Travel", "shape": "tall", "image": "" }
+    {
+      "caption": "Serum flat lay",
+      "niche": "Beauty",
+      "shape": "tall",
+      "image": ""
+    },
+    {
+      "caption": "Body lotion hero shot",
+      "niche": "Skincare",
+      "shape": "square",
+      "image": ""
+    },
+    {
+      "caption": "Linen set, golden hour",
+      "niche": "Fashion",
+      "shape": "tall",
+      "image": ""
+    },
+    {
+      "caption": "Café table still life",
+      "niche": "Lifestyle",
+      "shape": "wide",
+      "image": ""
+    },
+    {
+      "caption": "Accessories edit",
+      "niche": "Fashion",
+      "shape": "square",
+      "image": ""
+    },
+    {
+      "caption": "Hotel morning light",
+      "niche": "Travel",
+      "shape": "tall",
+      "image": ""
+    }
   ]
 }
