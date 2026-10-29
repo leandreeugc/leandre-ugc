@@ -124,7 +124,12 @@ header.nav .wrap { display: flex; align-items: center; justify-content: space-be
 .chip .soon { font-family: var(--font-mono); font-size: 9px; letter-spacing: .1em; text-transform: uppercase; background: var(--pink); color: var(--ink); padding: 2px 6px; border-radius: 999px; }
 
 /* Videos */
-.video-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 18px; }
+.video-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 18px; grid-auto-flow: dense; }
+.vcard.wide .ph { aspect-ratio: 16 / 9; }
+@media (min-width: 520px) { .vcard.wide { grid-column: span 2; } }
+.vcard .ph.embed { background: #fff; cursor: auto; aspect-ratio: 9 / 16; }
+.vcard .ph.embed.instagram { aspect-ratio: 10 / 21; }
+.vcard .ph.embed iframe { width: 100%; height: 100%; border: 0; display: block; }
 .vcard { display: grid; gap: 10px; align-content: start; }
 .vcard .ph { aspect-ratio: 9 / 16; border-radius: var(--radius); cursor: pointer; max-width: 100%; }
 .vcard .dur { position: absolute; top: 12px; right: 12px; background: rgba(30, 18, 24, .7); color: #fff; font-family: var(--font-mono); font-size: 11px; padding: 3px 8px; border-radius: 999px; }
@@ -422,19 +427,35 @@ function emptyNote(n) {
   const what = n === "All" ? "New content" : esc(n) + " content";
   return `<div class="empty-note"><strong>${what} is on its way</strong><span>New pieces are being filmed now. Want to be one of the first brands featured here?</span></div>`;
 }
+// Instagram, TikTok and YouTube links play as embedded posts
+function embedFor(url) {
+  const u = String(url || "");
+  let m;
+  if ((m = u.match(/instagram\.com\/(?:[\w.]+\/)?(reel|reels|p|tv)\/([\w-]+)/i))) return { kind: "instagram", src: `https://www.instagram.com/${m[1] === "reels" ? "reel" : m[1]}/${m[2]}/embed/` };
+  if ((m = u.match(/tiktok\.com\/.*\/video\/(\d+)/i))) return { kind: "tiktok", src: `https://www.tiktok.com/embed/v2/${m[1]}` };
+  if ((m = u.match(/youtube\.com\/shorts\/([\w-]{6,})/i))) return { kind: "youtube", src: `https://www.youtube.com/embed/${m[1]}` };
+  if ((m = u.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([\w-]{6,})/i))) return { kind: "youtube", wide: true, src: `https://www.youtube.com/embed/${m[1]}` };
+  return null;
+}
 function videoCards() {
   const items = list(S.videos.items).filter((v) => state.videos === "All" || v.niche === state.videos);
   if (!items.length) return emptyNote(state.videos);
-  return items.map((v, i) => `
-    <article class="vcard">
-      <div class="ph ${tint(i)}" ${v.video ? `tabindex="0" role="button" aria-label="Play ${esc(v.title)}"` : ""}>
+  return items.map((v, i) => {
+    const emb = embedFor(v.video);
+    const wide = v.shape === "horizontal" || (emb && emb.wide && v.shape !== "vertical");
+    const media = emb
+      ? `<div class="ph embed ${emb.kind}"><iframe src="${esc(emb.src)}" title="${esc(v.title)}" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen scrolling="no"></iframe></div>`
+      : `<div class="ph ${tint(i)}" ${v.video ? `tabindex="0" role="button" aria-label="Play ${esc(v.title)}"` : ""}>
         ${v.video
-          ? `<video src="${esc(v.video)}${v.cover ? "" : "#t=0.1"}" ${v.cover ? `poster="${esc(v.cover)}"` : ""} playsinline loop preload="metadata"></video><span class="dur" hidden></span>`
+          ? `<video src="${esc(v.video)}${v.cover ? "" : "#t=0.1"}" ${v.cover ? `poster="${esc(v.cover)}"` : ""} playsinline loop preload="metadata" data-shape="${esc(v.shape || "auto")}"></video><span class="dur" hidden></span>`
           : `<span class="ph-label">${ICON_VID}Video coming soon</span>`}
         <span class="play" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4l14 8-14 8z"/></svg></span>
-      </div>
+      </div>`;
+    return `
+    <article class="vcard${wide ? " wide" : ""}">
+      ${media}
       <div class="meta"><span class="cat">${esc(v.niche)}</span><h3>${esc(v.title)}</h3>${v.brand ? `<span class="brand">${esc(v.brand)}</span>` : ""}</div>
-    </article>`).join("");
+    </article>`; }).join("");
 }
 function photoCards() {
   const items = list(S.photos.items).filter((p) => state.photos === "All" || p.niche === state.photos);
@@ -446,6 +467,8 @@ function wireVideos() {
   document.querySelectorAll("#video-grid video").forEach((vid) => vid.addEventListener("loadedmetadata", () => {
     const d = vid.duration, chip = vid.parentElement.querySelector(".dur");
     if (chip && isFinite(d)) { chip.textContent = Math.floor(d / 60) + ":" + String(Math.floor(d % 60)).padStart(2, "0"); chip.hidden = false; }
+    // Wide videos get a wide box automatically (unless set to Vertical in the dashboard)
+    if (vid.dataset.shape === "auto" && vid.videoWidth > vid.videoHeight) vid.closest(".vcard").classList.add("wide");
   }));
 }
 function toggleVideo(e) {
